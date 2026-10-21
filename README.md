@@ -62,7 +62,7 @@ As seen in the last screenshot, when submitting a legitimate form (e.g., trying 
 
 ![editprofile.html](/images/04-token-failure.png)
 
-Disclaimer
+##Disclaimer
 This project was completed for educational purposes as part of the SEED Labs curriculum. The techniques shown here are intended for use in controlled, local, and authorized environments only. It is ILLEGAL to do this in real life!!!! Don't do it!
 
 text
