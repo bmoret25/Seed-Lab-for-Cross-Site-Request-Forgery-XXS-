@@ -38,3 +38,33 @@ window.onload = function() { forge_post(); }
 </script>
 </body>
 </html>
+
+
+
+https://images/01-editprofile-html.png
+
+Step 2: Executing the Attack
+When the victim visits the attacker's page (www.attacker32.com/editprofile.html), the browser executes the script and sends the forged POST request to the vulnerable server.
+
+Using the HTTP Header Live extension, we can see the forged POST request being sent to www.seed-server.com/action/profile/edit. Notice the payload contains the description=<p>Samy is my Hero!!!</p> data.
+
+https://images/02-http-header-live.png
+
+Step 3: Verifying the Result
+After the victim visits the malicious page, we refresh Alice's profile. The attack was successful, and her profile description has been changed to "Samy is my Hero!!!".
+
+https://images/03-successful-forge.png
+
+Step 4: Defense Analysis (CSRF Token)
+Modern web applications defend against this by using Anti-CSRF tokens.
+
+As seen in the last screenshot, when submitting a legitimate form (e.g., trying to manually change the profile to "tada"), the browser includes a hidden _elgg_token field. Because the attacker's forged page does not know the victim's unique, secret token, the server will reject the forged request.
+
+https://images/04-token-failure.png
+
+Disclaimer
+This project was completed for educational purposes as part of the SEED Labs curriculum. The techniques shown here are intended for use in controlled, local, and authorized environments only. It is ILLEGAL to do this in real life!!!! Don't do it!
+
+text
+
+
